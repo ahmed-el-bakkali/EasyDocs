@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="logo.png" type="image/png">
+    <title>Sign Up | MySheet</title>
+</head>
+<body class="bg">
+
+    <!-- ========================= -->
+    <!-- NAVBAR -->
+    <!-- ========================= -->
+
+    <header class="navbar">
+
+        <div class="navbar-left">
+
+            <img src="logo.png" alt="logo" id="logo">
+
+                <div class="navbar-brand">
+                    <h1 class="logo">EasyDocs</h1>
+                    <span class="tagline">Share.Learn.Grow.</span>
+                </div>
+
+        </div>
+
+        <div class="navbar-center">
+          
+        </div>
+
+        <div class="navbar-right">
+
+            <a href="home.html" id="homeLink">Home</a>
+            <a href="login.html" id="loginLink">Login</a>
+            
+        </div>
+
+    </header>
+
+    <!-- ========================= -->
+    <!-- MAIN CONTENT -->
+    <!-- ========================= -->
+
+    <main class="signup-page">
+
+        <section class="signup-card">
+
+            <h1>Create your account</h1>
+
+            <p>Join MySheet and start sharing resources with other students.</p>
+
+            <form id="signupForm">
+
+                <div class="form-group">
+                    <label for="school">School</label>
+                    <select id="school" required>
+                        <option value="">Select your school</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" placeholder="Choose a username" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" placeholder="your@email.com" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" placeholder="Password" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="confirmPassword">Confirm Password</label>
+                    <input type="password" id="confirmPassword" placeholder="Confirm password" required>
+                </div>
+
+                <button type="submit" id="signupBtn">Create Account</button>
+
+            </form>
+
+            <p class="signup-footer">
+                Already have an account?
+                <a href="login.html">Log In</a>
+            </p>
+
+        </section>
+
+    </main>
+
+    <!-- ========================= -->
+    <!-- FOOTER -->
+    <!-- ========================= -->
+
+    <footer class="footer">
+        <p>© 2026 MySheet. All rights reserved.</p>
+    </footer>
+<div id="toast-container"></div>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="supabase.js"></script>
+    <script src="utils.js"></script>
+    <script src="signup.js"></script>
+
+</body>
+</html>

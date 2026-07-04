@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="logo.png" type="image/png">
+    <title>Resource | MySheet</title>
+</head>
+<body>
+
+    <!-- ========================= -->
+    <!-- NAVBAR -->
+    <!-- ========================= -->
+
+    <header class="navbar">
+
+        <div class="navbar-left">   
+
+            <img src="logo.png" alt="logo" id="logo">
+
+                <div class="navbar-brand">
+                    <h1 class="logo">EasyDocs</h1>
+                    <span class="tagline">Share.Learn.Grow.</span>
+                </div>
+                
+        </div>
+
+        <div class="navbar-center">
+            
+        </div>
+
+        <div class="navbar-right">
+            
+             <a href="home.html" id="homeLink">Home</a>
+            <a href="profile.html" id="profileLink">profile</a>
+            <a href="upload.html" id="uploadLink">Upload</a>
+            <a href="#" id="logoutBtn">Logout</a>
+            <a href="login.html" id="loginLink">Login</a>
+            <a href="signup.html" id="signupLink">Sign up</a>
+            
+        </div>
+
+    </header>
+
+    <!-- ========================= -->
+    <!-- MAIN LAYOUT -->
+    <!-- ========================= -->
+
+    <main class="resource-page">
+
+        <!-- BREADCRUMB -->
+
+        <nav class="breadcrumb">
+            <a href="home.html">Home</a>
+            <span>></span>
+            <a href="#">Browse Materials</a>
+            <span>></span>
+            <span id="breadcrumbSubject">Loading...</span>
+        </nav>
+
+        <!-- RESOURCE HEADER -->
+
+        <section class="resource-header">
+
+            <div class="resource-preview">
+                <div class="pdf-icon">PDF</div>
+            </div>
+
+            <div class="resource-info">
+                <h1 id="title">Loading...</h1>
+                <p id="description">Loading description...</p>
+                <div class="resource-tags">
+                    <span class="tag">PDF</span>
+                    <span class="tag">Notes</span>
+                    <span class="tag">Study Material</span>
+                </div>
+            </div>
+
+            <div class="resource-actions">
+                <button id="downloadBtn" class="primary-btn" >Download</button>
+                <button class="secondary-btn">Save</button>
+                <button class="secondary-btn">Share</button>
+                <button id="editBtn" style="display:none;">Edit</button>
+                <button id="deleteBtn" style="display:none;">Delete</button>
+                    <section class="rating-section">
+                        <h3>Rate this Resource</h3>
+                        <div id="ratingStars">
+                            <button class="star" data-score="1"><svg class="starIcon" xmlns="http://www.w3.org/2000/svg" 
+                        width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-star-icon lucide-star"><path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"/></svg></button>
+                            <button class="star" data-score="2"><svg  class="starIcon" xmlns="http://www.w3.org/2000/svg" 
+                        width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-star-icon lucide-star"><path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"/></svg></button>
+                            <button class="star" data-score="3"><svg  class="starIcon" xmlns="http://www.w3.org/2000/svg" 
+                        width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-star-icon lucide-star"><path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"/></svg></button>
+                            <button class="star" data-score="4"><svg  class="starIcon" xmlns="http://www.w3.org/2000/svg" 
+                        width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-star-icon lucide-star"><path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"/></svg></button>
+                            <button class="star" data-score="5"><svg  class="starIcon" xmlns="http://www.w3.org/2000/svg" 
+                        width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-star-icon lucide-star"><path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"/></svg></button>
+                        </div>
+                    </section>
+            </div>
+
+        </section>
+
+        <!-- MAIN CONTENT -->
+
+        <section class="resource-layout">
+
+            <!-- LEFT -->
+
+            <div class="resource-main">
+
+                <!-- PDF -->
+
+                <section class="pdf-section">
+                    <iframe id="pdfViewer" class="pdf-viewer"></iframe>
+                </section>
+
+                <!-- FILE INFO -->
+
+                <section class="resource-meta">
+
+                    <div class="meta-box">
+                        <h4>File Type</h4>
+                        <p id="fileType">-</p>
+                    </div>
+
+                    <div class="meta-box">
+                        <h4>File Size</h4>
+                        <p id="fileSize">-</p>
+                    </div>
+
+                    <div class="meta-box">
+                        <h4>Rating</h4>
+                        <p id="rating">-</p>
+                    </div>
+
+                </section>
+
+                <!-- DESCRIPTION -->
+
+                <section class="description-section">
+                    <h2>Description</h2>
+                    <p id="fullDescription">Loading...</p>
+                </section>
+
+                <!-- COMMENTS -->
+
+                <section class="comments-section">
+                    <h2>Comments</h2>
+                    <div class="comment" id="comment"> --- </div>
+                </section>
+
+                <section class="comment-form">
+
+                    <h3>Leave a Comment</h3>
+                    <textarea id="commentInput" placeholder="Write your comment..." rows="4"></textarea>
+
+                    <button id="commentBtn">Post Comment</button>
+
+                </section>
+
+<div id="comments"></div>
+
+            </div>
+
+            <!-- RIGHT SIDEBAR -->
+
+            <aside class="resource-sidebar">
+
+                <div class="sidebar-card">
+
+                    <h3>Resource Details</h3>
+
+                    <div class="detail">
+                        <strong>School</strong>
+                        <span id="school">-</span>
+                    </div>
+
+                    <div class="detail">
+                        <strong>Year</strong>
+                        <span id="year">-</span>
+                    </div>
+
+                    <div class="detail">
+                        <strong>Semester</strong>
+                        <span id="semester">-</span>
+                    </div>
+
+                    <div class="detail">
+                        <strong>Major</strong>
+                        <span id="major">-</span>
+                    </div>
+
+                    <div class="detail">
+                        <strong>Subject</strong>
+                        <span id="subject">-</span>
+                    </div>
+
+                </div>
+
+                <div class="sidebar-card">
+
+                    <h3>Statistics</h3>
+
+                    <div class="detail">
+                        <strong>Average Rating</strong>
+                        <span id="averageRating">-</span>
+                    </div>
+
+                    <div class="detail">
+                        <strong>Downloads</strong>
+                        <span id="downloadsCount">0</span>
+                    </div>
+
+                     <div class="detail">
+                        <strong>Views</strong>
+                        <span id="views">-</span>
+                    </div>
+
+                     <div class="detail">
+                        <strong>Comments</strong>
+                        <span id="commentsCount">-</span>
+                    </div>
+
+                    <div class="detail">
+                        <strong>Uploaded</strong>
+                        <span id="uploadedDate">-</span>
+                    </div>
+
+                </div>
+
+            </aside>
+
+        </section>
+
+    </main>
+
+    <!-- ========================= -->
+    <!-- FOOTER -->
+    <!-- ========================= -->
+
+    <footer class="footer">
+        <p>© 2026 MySheet. All rights reserved.</p>
+    </footer>
+
+    <div id="toast-container"></div>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="supabase.js"></script>
+    <script src="utils.js"></script>
+    <script src="resource.js"></script>
+
+</body>
+</html>

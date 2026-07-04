@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="logo.png" type="image/png">
+    <title>Edit Resource | MySheet</title>
+</head>
+<body class="bg">
+
+    <!-- NAVBAR -->
+
+    <header class="navbar">
+
+        <div class="navbar-left">
+
+            <img src="logo.png" alt="logo" id="logo">
+
+                <div class="navbar-brand">
+                    <h1 class="logo">EasyDocs</h1>
+                    <span class="tagline">Share.Learn.Grow.</span>
+                </div>
+        
+        </div>
+
+        <div class="navbar-center">
+           
+        </div>
+
+        <div class="navbar-right">
+             <a href="home.html">Home</a>
+            <a href="profile.html">Profile</a>
+            <a href="upload.html">Upload</a>
+            <a href="#" id="logoutBtn">Logout</a>
+        </div>
+
+    </header>
+
+    <!-- MAIN -->
+
+    <main class="upload-page">
+
+        <section class="upload-card">
+
+            <h2>Edit Resource</h2>
+
+            <div class="form-group">
+                <label>Title</label>
+                <input
+                    type="text"
+                    id="title"
+                    placeholder="Resource title"
+                >
+            </div>
+
+            <div class="form-group">
+                <label>Description</label>
+
+                <textarea
+                    id="description"
+                    rows="5"
+                    placeholder="Describe your resource..."
+                ></textarea>
+            </div>
+
+            <div class="selectors">
+
+                <select id="school">
+                    <option value="">School</option>
+                </select>
+
+                <select id="year" disabled>
+                    <option value="">Year</option>
+                </select>
+
+                <select id="semester" disabled>
+                    <option value="">Semester</option>
+                </select>
+
+                <select id="major" disabled>
+                    <option value="">Major</option>
+                </select>
+
+                <select id="subject" disabled>
+                    <option value="">Subject</option>
+                </select>
+
+            </div>
+
+            <div class="buttons">
+
+                <button id="saveBtn">
+                    Save Changes
+                </button>
+
+                <a href="javascript:history.back()">
+                    Cancel
+                </a>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <p>© 2026 MySheet. All rights reserved.</p>
+    </footer>
+
+    <div id="toast-container"></div>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="supabase.js"></script>
+    <script src="utils.js"></script>
+    <script src="edit.js"></script>
+
+</body>
+</html>

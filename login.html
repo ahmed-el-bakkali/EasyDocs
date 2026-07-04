@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="logo.png" type="image/png">
+    <title>Login | MySheet</title>
+</head>
+<body class="bg">
+
+    <!-- ========================= -->
+    <!-- NAVBAR -->
+    <!-- ========================= -->
+
+    <header class="navbar">
+
+        <div class="navbar-left">
+
+            <img src="logo.png" alt="logo" id="logo">
+                <div class="navbar-brand">
+                    <h1 class="logo">EasyDocs</h1>
+                    <span class="tagline">Share.Learn.Grow.</span>
+                </div>
+
+        </div>
+
+        <div class="navbar-center">
+        </div>
+
+        <div class="navbar-right">
+            <a href="home.html" id="homeLink">Home</a>
+            <a href="signup.html" id="signupLink">Sign Up</a>
+            
+        </div>
+
+    </header>
+
+    <!-- ========================= -->
+    <!-- MAIN CONTENT -->
+    <!-- ========================= -->
+
+    <main class="login-page">
+
+        <section class="login-card">
+
+            <h1>Login to your account</h1>
+
+            <p>Welcome back! Log in to continue sharing and downloading resources.</p>
+
+            <form id="loginForm">
+
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" placeholder="your@email.com" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" placeholder="Password" required>
+                </div>
+
+            <button type="submit" id="loginBtn">Login</button>
+
+            <p class="login-footer">
+                Don't have an account?
+                <a href="signup.html">Sign Up</a>
+            </p>
+
+            </form>
+
+        </section>
+
+    </main>
+
+    <!-- ========================= -->
+    <!-- FOOTER -->
+    <!-- ========================= -->
+
+    <footer class="footer">
+        <p>© 2026 MySheet. All rights reserved.</p>
+    </footer>
+
+    <div id="toast-container"></div>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="supabase.js"></script>
+    <script src="utils.js"></script>
+    <script src="login.js"></script>
+
+</body>
+</html>
