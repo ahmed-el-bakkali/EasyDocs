@@ -1,0 +1,80 @@
+/* =========================================================
+   LAYOUT / SIDEBAR
+   Used on home.html, profile.html, upload.html (as part of
+   the .layout two-column grid — see layout/grid.css).
+   ========================================================= */
+
+/* Left sidebar — currently commented out in the markup on every page
+   that includes it, kept here so it can be switched back on */
+.left-sidebar {
+    padding: 1.1rem 1rem;
+    background: var(--bg-surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    position: sticky;
+    top: 68px;
+}
+.left-sidebar h3 {
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text);
+    margin-bottom: 0.75rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--border);
+}
+.left-sidebar ul { display: flex; flex-direction: column; gap: 0.1rem; }
+.left-sidebar li a {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    padding: 0.4rem 0.65rem;
+    border-radius: var(--radius-sm);
+    border-left: 2px solid transparent;
+    transition: all var(--transition);
+}
+.left-sidebar li a:hover {
+    color: var(--text);
+    background: var(--bg-raised);
+    border-left-color: var(--highlight);
+}
+
+/* Right sidebar shell (community cards / tips live inside it — see
+   components/cards.css and pages/upload.css) */
+.right-sidebar {
+    padding: 1.1rem 1rem;
+    background: var(--bg-surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    position: sticky;
+    top: 68px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+.right-sidebar h3 {
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-faint);
+    margin-bottom: 0.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--border);
+}
+.right-sidebar > p {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    padding: 0.35rem 0;
+    border-bottom: 1px solid var(--border);
+}
+.right-sidebar > p:last-child { border-bottom: none; }
+
+/* ---- Responsive ---- */
+@media (max-width: 1080px) {
+    .left-sidebar,
+    .right-sidebar {
+        display: none;
+    }
+}

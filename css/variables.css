@@ -1,0 +1,49 @@
+/* =========================================================
+   BASE / VARIABLES
+   Design tokens — colors, spacing, fonts, shadows.
+   Page and component files should never hardcode a color;
+   everything is driven from here so the whole site can be
+   re-themed from one place.
+   ========================================================= */
+:root {
+    /* Backgrounds — dark navy surfaces, each a step lighter for depth */
+    --bg:            #0F1A2E;
+    --bg-surface:    #1A2940;
+    --bg-raised:     #223354;
+
+    /* Text */
+    --text:          #E8EDF4;
+    --text-muted:    #8A9BBE;
+    --text-faint:    #4A5E80;
+
+    /* Accent (blue) — darkened a shade from the previous palette */
+    --accent:        #1E4A70;
+    --accent-hover:  #28608F;
+    --accent-soft:   rgba(30, 74, 112, 0.16);
+
+    /* Highlight (green) — the site's main "CTA / positive" accent:
+       used for links, ratings, borders, confirmations */
+    --highlight:      #1c7b0d;
+    --highlight-hover:#22940f;
+    --highlight-soft: rgba(28, 123, 13, 0.16);
+
+    /* Danger (red) */
+    --danger:        #C84040;
+    --danger-soft:   rgba(200, 64, 64, 0.12);
+
+    /* Borders */
+    --border:        #253550;
+    --border-strong: #33496B;
+
+    --radius-sm: 4px;
+    --radius:    6px;
+    --radius-lg: 10px;
+
+    --font-sans: 'IBM Plex Sans', system-ui, sans-serif;
+    --font-mono: 'IBM Plex Mono', 'Courier New', monospace;
+
+    --shadow:    0 2px 8px rgba(0,0,0,0.35);
+    --shadow-lg: 0 6px 24px rgba(0,0,0,0.5);
+
+    --transition: 0.18s ease;
+}

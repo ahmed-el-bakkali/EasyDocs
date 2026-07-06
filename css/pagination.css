@@ -1,0 +1,33 @@
+/* =========================================================
+   COMPONENTS / PAGINATION
+   Placeholder — the current EasyDocs markup/CSS does not yet
+   implement pagination controls anywhere (home.html's resource
+   grid has no page-by-page navigation). This file is kept as
+   a slot so pagination styling has an obvious home when it's
+   built, without needing to restructure the CSS later.
+
+   Suggested starting point once pagination exists:
+
+   .pagination {
+       display: flex;
+       align-items: center;
+       justify-content: center;
+       gap: 0.4rem;
+       padding: 1rem 0;
+   }
+   .pagination button {
+       min-width: 32px;
+       height: 32px;
+       background: var(--bg-surface);
+       border: 1px solid var(--border);
+       border-radius: var(--radius-sm);
+       color: var(--text-muted);
+       font-family: var(--font-mono);
+       font-size: 0.8rem;
+       cursor: pointer;
+       transition: border-color var(--transition), color var(--transition);
+   }
+   .pagination button:hover   { border-color: var(--border-strong); color: var(--text); }
+   .pagination button.active { border-color: var(--highlight); color: var(--highlight); }
+   .pagination button:disabled { opacity: 0.4; cursor: not-allowed; }
+   ========================================================= */

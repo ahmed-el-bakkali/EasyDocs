@@ -1,0 +1,15 @@
+/* =========================================================
+   COMPONENTS / BADGES
+   Small labeled tags — used in .resource-tags on resource.html.
+   ========================================================= */
+.tag {
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    padding: 0.18rem 0.5rem;
+    background: var(--accent-soft);
+    color: var(--accent-hover);
+    border: 1px solid var(--accent);
+    border-radius: var(--radius-sm);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}

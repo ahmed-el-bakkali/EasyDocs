@@ -1,0 +1,16 @@
+/* =========================================================
+   LAYOUT / FOOTER
+   Used on every page.
+   ========================================================= */
+.footer {
+    background: var(--bg-surface);
+    border-top: 1px solid var(--border);
+    padding: 1rem 1.75rem;
+    text-align: center;
+}
+.footer p {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    color: var(--text-faint);
+    letter-spacing: 0.03em;
+}

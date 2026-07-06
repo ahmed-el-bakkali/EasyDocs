@@ -1,0 +1,9 @@
+/* =========================================================
+   BASE / RESET
+   Applies everywhere — every page inherits these defaults.
+   ========================================================= */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { font-size: 18px; scroll-behavior: smooth; }
+
+ul { list-style: none; }

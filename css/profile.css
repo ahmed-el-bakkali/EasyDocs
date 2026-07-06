@@ -1,0 +1,147 @@
+/* =========================================================
+   PAGE: PROFILE (profile.html)
+   ========================================================= */
+.profile-card {
+    background: var(--bg-surface);
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--highlight);
+    border-radius: 18px;
+    padding: 1.75rem;
+    display: grid;
+    grid-template-columns: 140px 1fr 230px;
+    grid-template-rows: auto auto;
+    grid-template-areas:
+        "avatar info edit"
+        "avatar info stats";
+    gap: 1rem 2rem;
+    max-height: fit-content;
+}
+
+.profile-avatar {
+    grid-area: avatar;
+    align-self: start;
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid var(--border-strong);
+    box-shadow: var(--shadow);
+    background: var(--bg-raised);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.profile-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.profile-info {
+    grid-area: info;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: .5rem;
+}
+.profile-info h2 { font-size: 2.25rem; margin: 0; }
+.profile-info p {
+    display: flex;
+    align-items: center;
+    gap: .7rem;
+    color: var(--text-muted);
+    margin: 0;
+    font-size: .9rem;
+}
+
+/* Rows that pair an icon with text (email, school/year/major, joined date) */
+#profile-1, #profile-2, #profile-3, #profile-4 {
+    display: flex;
+    align-items: center;
+    column-gap: 10px;
+}
+
+#editProfile {
+    grid-area: edit;
+    justify-self: end;
+    align-self: start;
+}
+
+#profileStats {
+    grid-area: stats;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: .6rem;
+    align-content: start;
+}
+.stat-card {
+    background: var(--bg-raised);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: .6rem .7rem;
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    transition: .2s;
+}
+.stat-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow);
+}
+.stat-card svg {
+    width: 18px;
+    height: 18px;
+    color: var(--text-muted);
+    flex-shrink: 0;
+}
+.stat-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.15;
+}
+.stat-card .number { font-size: .95rem; font-weight: 700; }
+.stat-card .label  { font-size: .65rem; color: var(--text-muted); }
+
+/* Empty state shown in place of the owner's uploads grid */
+.empty-state-profile {
+    grid-column: 1/-1;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+.empty-state-profile img {
+    width: 60%;
+    height: 60%;
+    object-fit: contain;
+}
+.empty-state-profile span { color: var(--highlight); }
+
+/* Edit Profile modal — content specific to this one instance;
+   the .modal / .modal-content / .modal-buttons shell is shared
+   (see components/modals.css) */
+#cancelEditBtn {
+    padding: 0.6rem 1.2rem;
+    background: transparent;
+    color: var(--text-muted);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    font-family: var(--font-sans);
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: border-color var(--transition), color var(--transition);
+}
+#cancelEditBtn:hover { border-color: var(--border-strong); color: var(--text); }
+
+#saveProfileBtn {
+    padding: 0.6rem 1.2rem;
+    background: var(--highlight);
+    color: var(--text);
+    border: none;
+    border-radius: var(--radius);
+    font-family: var(--font-sans);
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background var(--transition), transform var(--transition);
+}
+#saveProfileBtn:hover { background: var(--highlight-hover); transform: translateY(-1px); }

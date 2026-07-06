@@ -1,0 +1,36 @@
+/* =========================================================
+   BASE / BASE
+   Page-level defaults: body shell, global utilities,
+   scrollbar and focus styling.
+   ========================================================= */
+body {
+    font-family: var(--font-sans);
+    font-weight: 400;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.65;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    -webkit-font-smoothing: antialiased;
+}
+
+main { flex: 1; }
+
+/* Background image utility — used on login.html, signup.html, edit.html (<body class="bg">) */
+/*.bg {
+    background-image: url("../assets/bg.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}*/
+
+/* Scrollbar — global */
+::-webkit-scrollbar       { width: 5px; height: 5px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--border-strong); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--text-faint); }
+
+/* Focus ring — global */
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }

@@ -1,0 +1,83 @@
+/* =========================================================
+   LAYOUT / NAVBAR
+   Used on every page.
+   ========================================================= */
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 1.75rem;
+    height: 60px;
+    background: var(--bg-surface);
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.navbar-left,
+.navbar-center,
+.navbar-right {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-left   { flex: 0 0 auto; flex-direction: row; gap: 0.6rem; }
+.navbar-center { flex: 1; justify-content: center; gap: 0.1rem; }
+.navbar-right  { flex: 0 0 auto; gap: 0.1rem; }
+
+#logo {
+    height: 45px;
+    width: auto;
+    display: block;
+}
+
+.navbar-brand {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0;
+}
+
+.logo {
+    font-size: 1.20rem;
+    font-weight: 700;
+    font-family: var(--font-mono);
+    letter-spacing: 0.04em;
+    margin: 0;
+}
+.logo a { color: var(--text); }
+.logo a:hover { color: var(--highlight); }
+
+.tagline {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+    color: var(--text-faint);
+    font-weight: 400;
+}
+
+.navbar-center a,
+.navbar-right a {
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: var(--text-muted);
+    padding: 0.3rem 0.65rem;
+    border-radius: var(--radius-sm);
+    transition: background var(--transition), color var(--transition);
+    white-space: nowrap;
+}
+.navbar-center a:hover,
+.navbar-right a:hover {
+    color: var(--text);
+    background: var(--bg-raised);
+}
+
+#logoutBtn { color: var(--text-faint); font-size: 0.8rem; }
+#logoutBtn:hover { color: #e05555; background: rgba(224,85,85,0.08); }
+
+/* ---- Responsive ---- */
+@media (max-width: 640px) {
+    .navbar        { padding: 0 1rem; }
+    .navbar-center { display: none; }
+}

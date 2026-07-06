@@ -1,0 +1,16 @@
+/* =========================================================
+   COMPONENTS / BREADCRUMBS
+   Used on upload.html and resource.html. upload.html scopes it
+   under .upload-content (see pages/upload.css) but the visual
+   style is identical, so it's kept here as the shared pattern.
+   ========================================================= */
+.breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--text-faint);
+}
+.breadcrumb a { color: var(--text-muted); }
+.breadcrumb a:hover { color: var(--highlight); }

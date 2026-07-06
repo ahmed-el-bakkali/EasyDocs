@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="icon" href="../assets/logo.png" type="image/png">
+    <title>Upload Resource | EasyDocs</title>
+</head>
+<body>
+    <!-- NAVBAR -->
+    <header class="navbar">
+        <div class="navbar-left">
+           <img src="../assets/logo.png" alt="logo" id="logo">
+                <div class="navbar-brand">
+                    <h1 class="logo">EasyDocs</h1>
+                    <span class="tagline">Share.Learn.Grow.</span>
+                </div>
+        </div>
+        <div class="navbar-center">     
+        </div>
+        <div class="navbar-right">
+            <a href="home.html" id="homeLink">Home</a>
+            <a href="profile.html" id="profileLink">profile</a>
+            <a href="#" id="logoutBtn">Logout</a>
+            <!--<a href="login.html">Login</a>
+            <a href="signup.html">Sign Up</a>--Page is already LOGIN required-->   
+        </div>
+    </header>
+    <!-- MAIN LAYOUT -->
+    <main class="layout">
+        <!-- MAIN CONTENT -->
+        <section class="upload-content">
+            <!-- BREADCRUMB -->
+            <div class="breadcrumb">
+                <a href="home.html">Home</a>
+                <span>></span>
+                <span>Upload</span>
+            </div>
+            <!-- PAGE HEADER -->
+            <div class="page-header">
+                <h1>Upload a New Resource</h1>
+                <p>Share your notes, exams, summaries and other study materials with the community.</p>
+            </div>
+            <!-- 1. UPLOAD FILE -->
+            <section class="upload-card">
+                <h2>1. Upload File</h2>
+                <div class="drop-zone">
+                    <div class="upload-icon"><img src="../assets/uploadIcon.png" alt="upload here" id="uploadIcon"></div>
+                    <h3>Drag & Drop your PDF here</h3>
+                    <p>or</p>
+                    <input type="file" id="pdfFile" accept=".pdf" hidden>
+                    <button type="button" id="chooseFileBtn">Choose File</button>
+                    <p id="selectedFile">No file selected</p>
+                    <small>Supported format: PDF</small>
+                </div>
+            </section>
+            <!-- 2. BASIC INFORMATION -->
+            <section class="upload-card">
+                <h2>2. Basic Information</h2>
+                <div class="form-group">
+                    <label for="title">Title <span class="required">*</span></label>
+                    <input type="text" id="title" placeholder="Enter a descriptive title">
+                </div>
+                <div class="form-group">
+                    <label for="description">Description</label>
+                    <textarea id="description" rows="6" maxlength="500" placeholder="Describe what this resource contains..."></textarea>
+                    <div class="character-count"><span id="descriptionCount">0</span>/500</div>
+                </div>
+                <div class="form-group">
+                    <label for="materialType">Material Type</label>
+                    <select id="materialType">
+                        <option value="">Select material type</option>
+                        <option>Lecture Notes</option>
+                        <option>Exam</option>
+                        <option>Correction</option>
+                        <option>Cheat Sheet</option>
+                        <option>Lab</option>
+                        <option>Project</option>
+                        <option>Book</option>
+                        <option>Other</option>
+                    </select>
+                </div>
+            </section>
+            <!-- 3. ACADEMIC INFORMATION -->
+            <section class="upload-card">
+                <h2>3. Academic Information</h2>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label>School</label>
+                        <select id="school"><option value="">School</option></select>
+                    </div>
+                    <div class="form-group">
+                        <label>Year</label>
+                        <select id="year" disabled><option value="">Year</option></select>
+                    </div>
+                    <div class="form-group">
+                        <label>Semester</label>
+                        <select id="semester" disabled><option value="">Semester</option></select>
+                    </div>
+                    <div class="form-group">
+                        <label>Major</label>
+                        <select id="major" disabled><option value="">Major</option></select>
+                    </div>
+                    <div class="form-group full-width">
+                        <label>Subject</label>
+                        <select id="subject" disabled><option value="">Subject</option></select>
+                    </div>
+                </div>
+            </section>
+            <!-- 4. ADDITIONAL INFORMATION -->
+            <section class="upload-card">
+                <h2>4. Additional Information</h2>
+                <div class="form-group">
+                    <label>Tags</label>
+                    <input type="text" id="tags" placeholder="Example: Algorithms, Exam, Summary">
+                </div>
+                <div class="form-group">
+                    <label>Visibility</label>
+                    <select id="visibility">
+                        <option value="public">Public</option>
+                        <option value="private">Private</option>
+                    </select>
+                </div>
+            </section>
+            <!-- 5. CONFIRM -->
+            <section class="upload-card">
+                <h2>5. Confirm Upload</h2>
+                <div class="upload-confirmation">
+                    <p>By uploading this resource, you confirm that you own the material or have permission to share it.</p>
+                </div>
+                <button id="uploadBtn" class="upload-button">Upload Resource</button>
+            </section>
+        </section>
+        <!-- RIGHT SIDEBAR -->
+        <aside class="right-sidebar">
+            <div class="tips-card">
+                <h3>Tips for Uploading</h3>
+                <ol>
+                    <li>Use a descriptive title.</li>
+                    <li>Add a useful description.</li>
+                    <li>Choose the correct subject.</li>
+                    <li>Make sure the PDF is readable.</li>
+                </ol>
+            </div>
+            <div class="tips-card">
+                <h3>Supported Files</h3>
+                <ul>
+                    <li>PDF</li>
+                    <li>PPT</li>
+                </ul>
+                <p>Maximum size: 20 MB</p>
+            </div>
+            <div class="tips-card">
+                <h3>Quality Checklist</h3>
+                <ul>
+                    <li>Write a clear, specific title.</li>
+                    <li>Explain what the resource covers in the description.</li>
+                    <li>Avoid misleading or incomplete information.</li>
+                </ul>
+            </div>
+        </aside>
+    </main>
+    <!-- FOOTER -->
+    <footer class="footer">
+        <p>© 2026 EasyDocs. All rights reserved.</p>
+    </footer>
+<div id="toast-container"></div>
+    <script type="module" src="../js/pages/upload.js"></script>
+</body>
+</html>

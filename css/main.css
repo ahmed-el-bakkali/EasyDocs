@@ -1,0 +1,45 @@
+/* =========================================================
+   EasyDocs — main.css
+   Theme: Engineering / Academic — Dark, Focused, Structured
+   Typefaces: IBM Plex Sans + IBM Plex Mono (Google Fonts)
+
+   This file only imports partials, in cascade order:
+   base → layout → components → pages.
+   Edit the individual files, not this one, unless you're
+   adding/removing a partial or changing load order.
+   ========================================================= */
+
+/* Google Fonts — must stay the first @import in the file */
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap');
+
+/* 1. Base */
+@import url('variables.css');
+@import url('reset.css');
+@import url('typography.css');
+@import url('base.css');
+
+/* 2. Layout */
+@import url('navbar.css');
+@import url('footer.css');
+@import url('sidebar.css');
+@import url('grid.css');
+
+/* 3. Components */
+@import url('buttons.css');
+@import url('cards.css');
+@import url('forms.css');
+@import url('toast.css');
+@import url('modals.css');
+@import url('breadcrumbs.css');
+@import url('badges.css');
+@import url('rating.css');
+@import url('pagination.css');
+
+/* 4. Pages */
+@import url('home.css');
+@import url('login.css');
+@import url('signup.css');
+@import url('profile.css');
+@import url('upload.css');
+@import url('edit.css');
+@import url('resource.css');

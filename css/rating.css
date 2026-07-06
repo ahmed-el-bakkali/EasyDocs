@@ -1,0 +1,80 @@
+/* =========================================================
+   COMPONENTS / RATING
+   Star rating control (resource.html) and the small rating
+   text shown on resource cards (home.html / profile.html).
+   ========================================================= */
+
+/* Rating text style — pairs with the rating markup emitted in the card
+   template (utils.js); apply the "resource-rating" class inside
+   article.resource-card .resource-main to use it */
+article.resource-card .resource-main .resource-rating {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--highlight);
+    margin-top: 0.5rem;
+    display: block;
+    -webkit-line-clamp: unset;
+    -webkit-box-orient: unset;
+    overflow: visible;
+}
+
+/* Interactive star rating widget on resource.html */
+.rating-section {
+    padding-top: 0.35rem;
+    border-top: 1px solid var(--border);
+}
+.rating-section h3 {
+    text-align: center;
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-faint);
+    margin-bottom: 0.4rem;
+}
+
+#ratingStars { display: flex; gap: .35rem; }
+
+#ratingStars .starIcon {
+    appearance: none;
+    -webkit-appearance: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    margin: 0;
+    background: transparent;
+    border: none;
+    outline: none;
+    box-shadow: none;
+    cursor: pointer;
+    color: #98a2b3; /* default star color */
+    transition: color .2s ease, transform .2s ease;
+}
+#ratingStars .starIcon:hover {
+    transform: scale(1.15);
+    color: #fbbf24; /* gold on hover */
+}
+#ratingStars .starIcon svg {
+    width: 24px;
+    height: 24px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+}
+/* Reserved for a "selected/favorited" state, not yet wired up in JS */
+#ratingStars .starIcon.active { color: var(--text); }
+#ratingStars .starIcon.active svg { fill: var(--text); stroke: var(--text); }
+
+#ratingStars button,
+#ratingStars button:focus,
+#ratingStars button:hover,
+#ratingStars button:active {
+    background: transparent !important;
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+}
+#ratingStars svg { background: transparent !important; }

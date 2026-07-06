@@ -1,0 +1,38 @@
+/* =========================================================
+   COMPONENTS / TOAST
+   Toast notifications — every page (#toast-container).
+   ========================================================= */
+#toast-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    z-index: 9999;
+}
+.toast {
+    min-width: 280px;
+    max-width: 360px;
+    padding: 14px 18px;
+    border-radius: 12px;
+    color: var(--text);
+    background: var(--bg-surface);
+    border-left: 5px solid var(--accent);
+    box-shadow: 0 8px 25px rgba(0,0,0,.35);
+    animation: slideIn .25s ease;
+}
+.toast.success { border-left-color: #4CAF50; }
+.toast.error   { border-left-color: var(--danger); }
+.toast.info    { border-left-color: var(--accent); }
+.toast.warning { border-left-color: var(--highlight); }
+
+@keyframes slideIn {
+    from { opacity: 0; transform: translateX(40px); }
+    to   { opacity: 1; transform: translateX(0); }
+}
+.toast.hide {
+    opacity: 0;
+    transform: translateX(40px);
+    transition: .25s;
+}

@@ -1,0 +1,180 @@
+/* =========================================================
+   PAGE: UPLOAD (upload.html)
+   Note: the "1. Upload File / 2. Basic Info..." card wrapper
+   (.upload-card) is also reused as-is by edit.html for its
+   single form card.
+   ========================================================= */
+.upload-content {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+}
+
+/* Scoped breadcrumb — same visual pattern as components/breadcrumbs.css,
+   kept here since upload.html applies it under this specific wrapper */
+.upload-content .breadcrumb {
+    font-family: var(--font-mono);
+    font-size: 0.73rem;
+    color: var(--text-faint);
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.page-header {
+    padding: 1.2rem 1.4rem;
+    background: var(--bg-surface);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--highlight);
+    border-radius: var(--radius-lg);
+}
+.page-header h1 { font-size: 1.2rem; margin-bottom: 0.28rem; }
+.page-header p  { font-size: 0.85rem; color: var(--text-muted); }
+
+/* Card wrapper for each numbered step */
+.upload-card {
+    background: var(--bg-surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 1.3rem 1.4rem;
+}
+.upload-card h2 {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-muted);
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--border);
+}
+
+.drop-zone {
+    border: 2px dashed var(--border-strong);
+    border-radius: var(--radius-lg);
+    padding: 2rem 1.25rem;
+    text-align: center;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    transition: border-color var(--transition), background var(--transition);
+}
+.drop-zone:hover {
+    border-color: var(--highlight);
+    background: var(--highlight-soft);
+}
+.upload-icon { font-size: 1.75rem; }
+#uploadIcon  { width: 25%; }
+.drop-zone h3 { font-size: 0.95rem; color: var(--text); margin: 0; }
+.drop-zone > p { font-size: 0.82rem; color: var(--text-faint); margin: 0; }
+.drop-zone small {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    color: var(--text-faint);
+}
+#selectedFile {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    margin-top: 0.5rem;
+    transition: color var(--transition);
+}
+#selectedFile.file-selected { color: var(--highlight); font-weight: 600; }
+
+#chooseFileBtn {
+    padding: 0.45rem 1.1rem;
+    background: var(--bg-raised);
+    color: var(--text);
+    border: 1px solid var(--border-strong);
+    border-radius: var(--radius);
+    font-family: var(--font-sans);
+    font-size: 0.82rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: border-color var(--transition), color var(--transition);
+}
+#chooseFileBtn:hover { border-color: var(--highlight); color: var(--highlight); }
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+}
+.form-group.full-width { grid-column: 1 / -1; }
+
+.character-count {
+    text-align: right;
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    color: var(--text-faint);
+    margin-top: 0.2rem;
+}
+
+.upload-confirmation {
+    background: var(--bg-raised);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--accent);
+    border-radius: var(--radius);
+    padding: 0.75rem 0.9rem;
+    margin-bottom: 0.85rem;
+}
+.upload-confirmation p { font-size: 0.82rem; color: var(--text-muted); }
+
+.upload-button {
+    display: block;
+    width: 100%;
+    padding: 0.78rem;
+    background: var(--accent);
+    color: var(--text);
+    border: none;
+    border-radius: var(--radius);
+    font-family: var(--font-sans);
+    font-size: 0.95rem;
+    font-weight: 700;
+    cursor: pointer;
+    letter-spacing: 0.02em;
+    transition: background var(--transition), transform var(--transition);
+}
+.upload-button:hover  { background: var(--accent-hover); transform: translateY(-1px); }
+.upload-button:active { transform: translateY(0); }
+
+/* Tips cards in the right sidebar */
+.tips-card {
+    background: var(--bg-surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 1rem 1.1rem;
+}
+.tips-card h3 {
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 0.09em;
+    color: var(--text-faint);
+    margin-bottom: 0.65rem;
+    padding-bottom: 0.45rem;
+    border-bottom: 1px solid var(--border);
+}
+.tips-card ol,
+.tips-card ul { padding-left: 1rem; }
+.tips-card li {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin-bottom: 0.35rem;
+    list-style: decimal;
+}
+.tips-card ul li { list-style: disc; }
+.tips-card > p {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--text-faint);
+    margin-top: 0.55rem;
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 640px) {
+    .form-grid { grid-template-columns: 1fr; }
+}

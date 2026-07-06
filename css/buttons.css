@@ -1,0 +1,41 @@
+/* =========================================================
+   COMPONENTS / BUTTONS
+   Generic primary / secondary action buttons.
+   Used on profile.html (#editProfile) and resource.html
+   (download, save, share, edit, delete). Page-specific,
+   uniquely-styled buttons (e.g. #loginBtn, #saveBtn,
+   #commentBtn) live in their own page file instead.
+   ========================================================= */
+.primary-btn {
+    padding: 0.55rem 1rem;
+    background: var(--accent);
+    color: var(--text);
+    border: none;
+    border-radius: var(--radius);
+    font-family: var(--font-sans);
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    text-align: center;
+    transition: background var(--transition), transform var(--transition);
+}
+.primary-btn:hover { background: var(--accent-hover); transform: translateY(-1px); }
+
+.secondary-btn {
+    padding: 0.55rem 1rem;
+    background: transparent;
+    color: var(--text-muted);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    font-family: var(--font-sans);
+    font-size: 0.85rem;
+    font-weight: 500;
+    cursor: pointer;
+    text-align: center;
+    transition: border-color var(--transition), color var(--transition), background var(--transition);
+}
+.secondary-btn:hover {
+    border-color: var(--border-strong);
+    color: var(--text);
+    background: var(--bg-raised);
+}
