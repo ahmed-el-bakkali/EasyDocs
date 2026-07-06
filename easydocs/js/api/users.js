@@ -50,7 +50,7 @@ export async function loadProfileStats(elements) {
         elements.resourcesContainer.innerHTML = "";
         image1.innerHTML =  `<br><h2>You haven't uploaded any content yet</h2>
                              <p><span>Share</span> now and <span>help</span> others</p>
-                             <br><img src="../assets/image1.png" alt="illustartion for profile page"> 
+                             <br><img src="assets/image1.png" alt="illustartion for profile page"> 
                              `;
         elements.resourcesContainer.appendChild(image1);
     }
