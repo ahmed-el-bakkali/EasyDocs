@@ -17,7 +17,7 @@ export async function login(event){
             return;}
 
             showToast("Welsome back :)","success");
-    window.location.href="home.html";
+    window.location.href="index.html";
 
 
 }
@@ -34,7 +34,7 @@ export async function logout(event) {
         return;
     }
 
-    window.location.href = "home.html";
+    window.location.href = "index.html";
 
 }
 
@@ -69,7 +69,7 @@ if(userError){
     showToast(userError.error,"error");
     return;}
 
- window.location.href = "home.html";
+ window.location.href = "index.html";
 
 showToast("Account created succesfully! Welcome to EasyDocs","success");
 }

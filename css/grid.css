@@ -1,6 +1,6 @@
 /* =========================================================
    LAYOUT / GRID
-   Two-column layout shell — home.html, profile.html, upload.html
+   Two-column layout shell — index.html, profile.html, upload.html
    all use <main class="layout"> as their shell; upload.html builds
    its own content/sidebar inside it instead of reusing .content /
    .right-sidebar verbatim (see pages/upload.css).

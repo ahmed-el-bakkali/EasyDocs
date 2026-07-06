@@ -1,8 +1,8 @@
 /* =========================================================
-   PAGE: HOME (home.html)
+   PAGE: HOME (index.html)
    ========================================================= */
 
-/* Hero banner — markup is currently commented out in home.html,
+/* Hero banner — markup is currently commented out in index.html,
    kept ready for when it's switched back on */
 .hero {
     background: var(--bg-surface);

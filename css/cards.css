@@ -1,7 +1,7 @@
 /* =========================================================
    COMPONENTS / CARDS
    Community promo card + the resource grid built by utils.js.
-   Used on home.html, profile.html, upload.html.
+   Used on index.html, profile.html, upload.html.
    ========================================================= */
 
 /* -----------------------------------------------------------
@@ -39,7 +39,7 @@
 .redirectBtn { color: var(--text); }
 
 /* -----------------------------------------------------------
-   Resource cards — grid + card used on home.html and profile.html
+   Resource cards — grid + card used on index.html and profile.html
 ----------------------------------------------------------- */
 .resources {
     display: grid;

@@ -1,7 +1,7 @@
 /* =========================================================
    COMPONENTS / PAGINATION
    Placeholder — the current EasyDocs markup/CSS does not yet
-   implement pagination controls anywhere (home.html's resource
+   implement pagination controls anywhere (index.html's resource
    grid has no page-by-page navigation). This file is kept as
    a slot so pagination styling has an obvious home when it's
    built, without needing to restructure the CSS later.
