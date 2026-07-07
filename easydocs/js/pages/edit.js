@@ -14,13 +14,7 @@ import { supabaseClient } from "../config/supabase.js";
 import { requireLogin } from "../auth/session.js";
 import { updateNavbar } from "../auth/navbar.js";
 import { logout } from "../auth/auth.js";
-import {
-    loadSchools,
-    loadYears,
-    loadMajors,
-    loadSemesters,
-    loadSubjects
-} from "../api/academic.js";
+import {loadSchools,loadYears,loadMajors,loadSemesters,loadSubjects} from "../api/academic.js";
 import { showToast } from "../ui/toast.js";
 
 initEditPage();

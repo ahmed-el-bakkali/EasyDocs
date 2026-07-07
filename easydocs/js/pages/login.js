@@ -9,9 +9,6 @@ import { showToast } from "../ui/toast.js";
 initLoginPage();
 
 async function initLoginPage() {
-
     await updateNavbar();
-
     loginForm.addEventListener("submit", login);
-
 }

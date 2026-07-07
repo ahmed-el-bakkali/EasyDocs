@@ -52,6 +52,8 @@
 .resource-header .resource-actions {
     display: flex;
     flex-direction: column;
+    justify-content:center;
+    align-items:center;
     gap: 0.45rem;
     min-width: 130px;
     flex-shrink: 0;

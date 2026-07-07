@@ -41,17 +41,10 @@ import { supabaseClient } from "../config/supabase.js";
 import { getCurrentUser } from "../auth/session.js";
 import { logout } from "../auth/auth.js";
 import { updateNavbar } from "../auth/navbar.js";
-
-import {loadTheResource, rateResource,incDownloadCount,incViewCount,deleteResource
-} from "../api/resources.js";
-
-import {loadComments, postComment
-} from "../api/comment.js";
-
+import {loadTheResource, rateResource,/*incDownloadCount,incViewCount,*/deleteResource} from "../api/resources.js";
+import {loadComments, postComment} from "../api/comment.js";
 import { loadDocInfo } from "../ui/document.js";
-
 import { showToast } from "../ui/toast.js";
-
 
 initResourcePage();
 
@@ -64,7 +57,8 @@ async function initResourcePage() {
 
     // just to protect from incing at every refresh
     if (!sessionStorage.getItem(`viewed-${resourceId}`)) {
-    await incViewCount(resourceId);
+    /*await incViewCount(resourceId);*/
+    await supabaseClient.rpc("increment_view_count", {p_resource_id: resourceId});
     sessionStorage.setItem(`viewed-${resourceId}`, "true");
 }
 
@@ -72,8 +66,9 @@ async function initResourcePage() {
 
     if (logoutBtn) {logoutBtn.addEventListener("click", logout);}
 
-    downloadBtn.addEventListener("click", () => {
-         incDownloadCount(resourceId);
+    downloadBtn.addEventListener("click", async () => {
+        //incDownloadCount(resourceId);
+        await supabaseClient.rpc("increment_download_count", {p_resource_id: resourceId});
         window.open(document.getElementById("pdfViewer").src, "_blank");});
 
     const {data, error} = await supabaseClient

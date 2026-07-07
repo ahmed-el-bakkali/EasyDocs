@@ -40,13 +40,9 @@ const elements = {
 
 import { getCurrentUser, requireLogin } from "../auth/session.js";
 import { updateNavbar } from "../auth/navbar.js";
-
 import { loadSemesters, loadMajors } from "../api/academic.js";
 import { loadResources } from "../api/resources.js";
-
-import {loadProfile,loadProfileStats,editProfile,saveProfile
-} from "../api/users.js";
-
+import {loadProfile,loadProfileStats,editProfile,saveProfile} from "../api/users.js";
 import { showToast } from "../ui/toast.js";
 
 initProfilePage();
@@ -59,8 +55,6 @@ async function initProfilePage() {
         await loadResources({uploaderId : user.id }, resourcesContainer);
         loadProfileStats(elements);
         editBtn.addEventListener("click", () => editProfile(elements));
-
-    
 
     yearSelect.addEventListener("change", async () => {
     semesterSelect.innerHTML = '<option value="">Select Semester</option>';

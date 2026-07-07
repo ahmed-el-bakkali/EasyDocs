@@ -3,12 +3,13 @@ import { showToast } from "../ui/toast.js";
 import { getCurrentUser } from "../auth/session.js";
 import { resetUploadButton } from "../ui/uploads.js";
 
-export async function loadResources({  schoolId = null,
-                                yearId = null,
-                                semesterId = null,
-                                majorId = null,
-                                subjectId = null,
-                                uploaderId = null} = {}, resourcesContainerEl)    {
+export async function loadResources({   schoolId = null,
+                                        yearId = null,
+                                        semesterId = null,
+                                        majorId = null,
+                                        subjectId = null,
+                                        uploaderId = null} = {},
+                                        resourcesContainerEl)    {
 
         let query = supabaseClient.from("resource") ;
 
@@ -326,6 +327,9 @@ const user = await getCurrentUser();
     showToast("Your rating was recorded","success");
 }
 
+// updated RLS so these no longer work, switching to RPC functions 
+
+/*
 export async function incDownloadCount(resourceId){
 
     const{data} = await supabaseClient
@@ -354,4 +358,4 @@ export async function incViewCount(resourceId){
                 return ; 
             }
 
-}
+}*/

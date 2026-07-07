@@ -12,15 +12,20 @@
     border: 1px solid var(--border);
     border-top: 2px solid var(--highlight);
     border-radius: var(--radius-lg);
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
     padding: 1rem;
     margin-bottom: 10px;
 }
 .community-card h3 { margin-bottom: 0.3rem; }
 .community-card p  { font-size: 0.78rem; color: var(--text-muted); margin-bottom: 0.65rem; }
 .community-card img {
-    width: 100%;
-    height: 100%;
+    width: 60%;
+    height: 60%;
     object-fit: contain;
+    
 }
 .community-card button {
     width: 100%;
@@ -111,8 +116,7 @@ article.resource-card .resource-actions {
     padding: 0.55rem 1rem;
     border-top: 1px solid var(--border);
     display: flex;
-    align-items: center;
-    width: 100%;
+      width: 100%;
     gap: 0.5rem;
     flex-direction: row;
 }
