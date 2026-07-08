@@ -16,17 +16,15 @@ const chooseFileBtn = document.getElementById("chooseFileBtn");
 import { requireLogin } from "../auth/session.js";
 import { updateNavbar } from "../auth/navbar.js";
 import { logout } from "../auth/auth.js";
-
-import {loadSchools,loadYears,loadMajors,loadSemesters,loadSubjects
-} from "../api/academic.js";
-
+import {loadSchools,loadYears,loadMajors,loadSemesters,loadSubjects} from "../api/academic.js";
 import { uploadResource } from "../api/resources.js";
-
 import { showToast } from "../ui/toast.js";
 import { resetUploadButton } from "../ui/uploads.js";
 
 initUploadPage();
 
+
+c
 async function initUploadPage() {
     await updateNavbar();
     if (!await requireLogin()) return;
