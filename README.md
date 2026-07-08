@@ -26,40 +26,7 @@ all tagged by school, year, major, semester, subject and in the future also with
 
 > Project Structure
 
-easydocs/
-├── index.html          # Home / browse page
-├── login.html
-├── signup.html
-├── upload.html
-├── edit.html
-├── resource.html        # Resource detail page
-├── profile.html
-│
-├── css/                  # One file per component/page, imported via main.css
-│   ├── main.css          # Import order: base → layout → components → pages
-│   ├── variables.css / reset.css / typography.css / base.css
-│   ├── navbar.css / footer.css / sidebar.css / grid.css
-│   ├── buttons.css / cards.css / forms.css / modals.css / toast.css / ...
-│   └── home.css / login.css / signup.css / upload.css / edit.css / ...
-│
-├── js/
-│   ├── config/
-│   │   └── supabase.js   # Supabase client initialization
-│   ├── auth/
-│   │   ├── auth.js       # login / signup / logout
-│   │   ├── session.js    # getCurrentUser / requireLogin
-│   │   └── navbar.js     # nav link visibility based on auth state
-│   ├── api/               # Supabase queries, grouped by domain
-│   │   ├── academic.js    # schools / years / semesters / majors / subjects
-│   │   ├── resources.js   # CRUD, filtering, upload, rating
-│   │   ├── comment.js
-│   │   └── users.js
-│   ├── pages/              # One entry file per HTML page
-│   │   └── home.js / login.js / signup.js / upload.js / edit.js / resource.js / profile.js
-│   └── ui/                 # Reusable UI helpers
-│       ├── toast.js / uploads.js / document.js
-│
-└── assets/                # Logo, icons, illustrations
+<img width="626" height="696" alt="image" src="https://github.com/user-attachments/assets/00453ec0-9036-40d0-a87f-c4a8c0f0d215" />
 
 The reason for this structure is that when I first deployed I had html/, css/, js/ and assets/ but that failed and did not compile correctly because,
 I later found out that CloudFlare pages expects and index.html to be present at the root level so Imigrated all the html there in order not to have to change all the paths
