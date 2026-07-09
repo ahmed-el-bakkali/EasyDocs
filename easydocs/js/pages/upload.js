@@ -23,8 +23,6 @@ import { resetUploadButton } from "../ui/uploads.js";
 
 initUploadPage();
 
-
-c
 async function initUploadPage() {
     await updateNavbar();
     if (!await requireLogin()) return;
