@@ -17,7 +17,8 @@ EasyDocs is a full-stack web application that enables university students to dis
 <img width="1707" height="597" alt="image" src="https://github.com/user-attachments/assets/a207a7c5-2add-4658-b407-eddeab4a013e" />
 > Upload page
 
-> Status: Early-stage MVP (Iteration 3), in active development. Built as a full-stack learning project with Supabase.
+> Status:
+Early-stage MVP (Iteration 3), in active development. Built as a full-stack learning project with Supabase.
 
 > Features: 
 
@@ -31,11 +32,12 @@ EasyDocs is a full-stack web application that enables university students to dis
 
 > Tech Stack:
 
-    Layer -> Technology 
-    Frontend -> HTML5, CSS3 (vanilla, modular), JavaScript (ES Modules) 
-    Backend -> [Supabase](https://supabase.com) handles -> Postgres, Auth, Storage 
-    Data access -> Row Level Security (RLS) policies + SQL triggers/RPCs 
-    Hosting -> Static site (Netlify (canceled) / Cloudflare Pages (current version)) 
+    Layer           ->     Technology 
+    Frontend        ->     HTML5, CSS3 (vanilla, modular), JavaScript (ES Modules) 
+    Backend         ->     [Supabase](https://supabase.com) handles -> Postgres, Auth, Storage 
+    Data access     ->     Row Level Security (RLS) policies + SQL triggers/RPCs 
+    Hosting         ->     Static site (Netlify (canceled) / Cloudflare Pages (current version)) 
+    
     No frontend framework or build step — plain ES modules imported directly in the browser.
 
 > Project Structure
@@ -56,12 +58,13 @@ I later found out that CloudFlare pages expects and index.html to be present at 
 
 > Known Limitations
 
-This is an early build a few things are not there yet but will be added in upcoming versions:
+This is an early build a few things are not there yet :
 
 - No pagination, resource lists load all matching results at once
 - No text search, browsing relies on the school/year/major/semester/subject filters
 - No moderation dashboard, the flag table exists but isn't wired up in the UI yet
-
+- The DB can get better, some tables should be absorbed by other table 
+  
 > Roadmap
 
 - [ ] Search across resource titles/descriptions or tags 
@@ -70,6 +73,7 @@ This is an early build a few things are not there yet but will be added in upcom
 - [ ] Notifications
 - [ ] Adding a page or section for saved content
 - [ ] Checking email domain (I want to ensure that only students that are enrolled in a school and have a valid institutional email are able to post content under their school tag to ensure the integrity of the posted material)
+- [ ] Better UI 
 
 > Minor upcoming fixes
 
@@ -77,3 +81,14 @@ This is an early build a few things are not there yet but will be added in upcom
 - [ ] A profile card in the homepage
 - [ ] Ensure file type is pdf or ppt
 - [ ] Fixing a minor filter logic problem
+
+## Principles
+
+This project was built as a learning exercise with the goal of understanding how a full-stack application is designed and implemented from the ground up.I wrote the application's JavaScript logic, SQL queries, database schema, triggers, and most of the HTML myself. CSS was the area I found most challenging, so I relied more heavily on AI assistance for layout ideas, styling suggestions, and debugging.
+AI was used as a learning and productivity tool rather than as a replacement for understanding. I used it to:
+* Explain concepts I was unfamiliar with.
+* Point out design issues or missing considerations.
+* Suggest improvements and alternative approaches.
+* Help debug problems when I was stuck.
+I reviewed, tested, and adapted the generated suggestions before integrating them into the project. One of the main goals of EasyDocs was to strengthen my understanding of full-stack development, database design, and modern web application architecture, and AI served as a guide throughout that learning process.
+
