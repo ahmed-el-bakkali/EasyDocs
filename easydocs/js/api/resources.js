@@ -28,8 +28,8 @@ export async function loadResources({   schoolId = null,
                      .eq("subjects.id_year", yearId).eq("subjects.id_semester", semesterId);
     }
 
-    if (!schoolId && !yearId && semesterId && majorId && !subjectId && !uploaderId) { // for majorId
-        query = query.select(`*,subjects!inner (id_major, id_semester)`).eq("subjects.id_major", majorId).eq("subjects.id_semester", semesterId);
+    if (!schoolId && yearId && semesterId && majorId && !subjectId && !uploaderId) { // for majorId
+        query = query.select(`*,subjects!inner (id_year,id_major, id_semester)`).eq("subjects.id_year", yearId).eq("subjects.id_major", majorId).eq("subjects.id_semester", semesterId);
     }
 
     if (!schoolId && !yearId && !semesterId && !majorId && subjectId && !uploaderId) { // for subjectId

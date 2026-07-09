@@ -54,7 +54,8 @@ async function initHomePage() {
         loadMajors(yearSelect.value, semesterSelect.value, majorSelect);
     });
     majorSelect.addEventListener("change", () => {
-        loadResources({ majorId : majorSelect.value,
+        loadResources({ yearId : yearSelect.value,
+                        majorId : majorSelect.value,
                         semesterId : semesterSelect.value
                         }, resourcesContainer);
         subjectSelect.innerHTML = '<option value="">Subject</option>';
