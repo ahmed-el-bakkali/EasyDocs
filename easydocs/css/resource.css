@@ -326,11 +326,18 @@ article.comment-card small {
     text-align: right;
 }
 
+.resource-header-card{
+     display: grid;
+    grid-template-columns: 64px 10fr auto;
+    gap: 10px;
+    align-items: start;
+}
+
 /* ---- Responsive ---- */
 @media (max-width: 1080px) {
     .resource-layout { grid-template-columns: 1fr; }
-    .resource-header { grid-template-columns: 64px 1fr; }
-    .resource-header .resource-actions {
+    .resource-header-card { grid-template-columns: 64px 1fr;}
+    .resource-header-card .resource-actions {
         grid-column: 1 / -1;
         flex-direction: row;
         flex-wrap: wrap;
@@ -338,6 +345,6 @@ article.comment-card small {
 }
 
 @media (max-width: 640px) {
-    .resource-header { grid-template-columns: 1fr; }
+    .resource-header-card { grid-template-columns: 1fr; }
     .resource-meta    { grid-template-columns: 1fr 1fr; }
 }

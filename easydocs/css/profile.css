@@ -15,6 +15,7 @@
         "avatar info stats";
     gap: 1rem 5rem;
     max-height: fit-content;
+    box-sizing: border-box;
     
 }
 

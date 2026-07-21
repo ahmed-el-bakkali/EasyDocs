@@ -38,6 +38,7 @@
     font-weight: 600;
     cursor: pointer;
     transition: background var(--transition);
+    
 }
 .community-card button:hover { background: var(--accent-hover); }
 .community-card button a { color: var(--text); }
@@ -46,17 +47,6 @@
 /* -----------------------------------------------------------
    Resource cards — grid + card used on index.html and profile.html
 ----------------------------------------------------------- */
-.resources {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 0.85rem;
-}
-.resources > p {
-    grid-column: 1 / -1;
-    color: var(--text-muted);
-    font-size: 0.88rem;
-    padding: 1rem 0;
-}
 
 /* Empty-state message shown inside .resources when there are 0 results */
 .empty-state {
@@ -144,4 +134,193 @@ article.resource-card .resource-actions a:hover {
     color: var(--text-muted);
     font-size: .95rem;
     margin-left: auto;
+}
+/* -----------------------------------------------------------
+   Resource cards — grid + card used on index.html and profile.html
+----------------------------------------------------------- */
+.resources {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 0.85rem;
+}
+.resources > p {
+    grid-column: 1 / -1;
+    color: var(--text-muted);
+    font-size: 0.88rem;
+    padding: 1rem 0;
+}
+
+@media (max-width: 560px) {
+    .resources { grid-template-columns: 1fr; }
+}
+
+/* Empty-state message shown inside .resources when there are 0 results */
+.empty-state {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 2rem 1rem;
+}
+.empty-state h3 { font-size: 0.95rem; margin-bottom: 0.4rem; }
+.empty-state p  { font-size: 0.85rem; color: var(--text-muted); }
+
+/* ---- Card shell ---- */
+article.resource-card {
+    background: var(--bg-surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    position: relative;
+    transition: border-color var(--transition), transform var(--transition), box-shadow var(--transition);
+}
+article.resource-card::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--highlight);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform var(--transition);
+}
+article.resource-card:hover {
+    border-color: var(--border-strong);
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-lg);
+}
+article.resource-card:hover::before { transform: scaleX(1); }
+
+article.resource-card > a {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    color: inherit;
+    text-decoration: none;
+}
+
+/* ---- Header: preview thumbnail + title/description ---- */
+article.resource-card .resource-header {
+    display: flex;
+    gap: 0.75rem;
+    padding: 1rem 1rem 0.75rem;
+}
+article.resource-card .resource-preview {
+    flex-shrink: 0;
+    width: 42px;
+    height: 42px;
+    border-radius: var(--radius);
+    background: var(--accent-soft);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+article.resource-card .pdf-icon {
+    font-family: var(--font-mono);
+    font-size: 0.6rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    color: var(--highlight);
+}
+article.resource-card .resource-info { min-width: 0; flex: 1; }
+article.resource-card .resource-info h3 {
+    font-size: 0.92rem;
+    font-weight: 600;
+    color: var(--text);
+    margin: 0 0 0.3rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+article.resource-card .resource-info p {
+    font-size: 0.8rem;
+    line-height: 1.4;
+    color: var(--text-muted);
+    margin: 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* ---- Rating row ---- */
+article.resource-card .resource-rating {
+    display: flex;
+    align-items: center;
+    justify-content : center;
+    gap: 0.5rem;
+    padding: 0.6rem 1rem 0.7rem;
+    margin-top: auto; /* pushes rating+footer to the bottom of the card */
+}
+/*article.resource-card .stars {
+    display: flex;
+    gap: 0.05rem;
+}
+article.resource-card .stars svg {
+    width: 13px;
+    height: 13px;
+}*/
+
+article.resource-card .resource-rating > span {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    color: var(--text-muted);
+}
+
+/* ---- Footer: uploader ---- */
+article.resource-card .resource-footer {
+    padding: 0.65rem 1rem;
+    border-top: 1px solid var(--border);
+}
+article.resource-card .uploader {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+article.resource-card .uploader img {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 1px solid var(--border);
+}
+article.resource-card .uploader span {
+    font-size: 0.76rem;
+    color: var(--text-muted);
+}
+
+.resource-preview{
+    margin-top : 10px;
+    margin-left : 10px;
+}
+.resource-info{
+    margin-top : 10px;
+}
+article.resource-card .stars {
+    position: relative;
+    display: inline-block;
+    line-height: 0;
+}
+article.resource-card .stars-bg,
+article.resource-card .stars-fg {
+    display: flex;
+    gap: 1px;
+}
+article.resource-card .stars-bg {
+    color: var(--border-strong); /* empty/unfilled star color */
+}
+article.resource-card .stars-fg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    width: var(--rating-pct, 0%);
+    color: var(--highlight); /* filled star color */
+}
+article.resource-card .stars svg {
+    width: 13px;
+    height: 13px;
+    fill: currentColor;
+    stroke: currentColor;
+    flex-shrink: 0;
 }

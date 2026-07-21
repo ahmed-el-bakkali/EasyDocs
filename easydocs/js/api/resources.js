@@ -63,30 +63,56 @@ export async function loadResources({   schoolId = null,
 
     }
 
-async function resourceCardDisplay(resource, resourcesContainerEl){
+/*async function resourceCardDisplay(resource, resourcesContainerEl){
+   const {data} = await supabaseClient.from("users").select("username").eq("id_user",resource.id_uploader).single();
     const card = document.createElement("article");
     card.classList.add("resource-card");
     card.innerHTML = `
-        <div class="resource-main">
+    <a href = "resource.html?id=${resource.id_resource}">
+
+        <div class="resource-header-card">
+
+            <div class="resource-preview">
+                <div class="pdf-icon">PDF</div>
+            </div>
+
+        <div class="resource-info">
             <h3>${resource.title}</h3>
-            <p>
-                ${resource.description || "No description"}
-            </p>       
+            <p>${resource.description || "No description"}</p>     
         </div>
-        <div class="resource-actions">
-            <a href="resource.html?id=${resource.id_resource}">View     </a>
-            <p><svg xmlns="http://www.w3.org/2000/svg" 
-                        width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-star-icon lucide-star"><path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"/></svg>${Number(resource.average_rating).toFixed(1)} (${resource.rating_count})</p>
-                    <div class="resource-stats">
-                    <p><svg xmlns="http://www.w3.org/2000/svg" 
-                        width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-down-to-line-icon lucide-arrow-down-to-line"><path d="M12 17V3"/><path d="m6 11 6 6 6-6"/><path d="M19 21H5"/></svg> ${resource.download_count}</p>
-                    <p><svg xmlns="http://www.w3.org/2000/svg" 
-                        width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-message-circle-icon lucide-message-circle"><path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719"/></svg> ${resource.comment_count}</p>
-                    <p><svg xmlns="http://www.w3.org/2000/svg" 
-                        width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-eye-icon lucide-eye"><path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0"/><circle cx="12" cy="12" r="3"/></svg> ${resource.view_count}</p>
-                </div>
-        </div>`;
-    resourcesContainerEl.appendChild(card);}
+        
+        </div>
+
+        <div class="resource-rating">
+        
+        <div class="stars">
+        <svg xmlns="http://www.w3.org/2000/svg" 
+            width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-star-icon lucide-star"><path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" 
+            width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-star-icon lucide-star"><path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" 
+            width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-star-icon lucide-star"><path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" 
+            width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-star-icon lucide-star"><path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" 
+            width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-star-icon lucide-star"><path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"/></svg>     
+        </div>
+
+        <span>${resource.average_rating} (${resource.rating_count})</span>
+
+        </div>
+
+        <div class="resource-footer">
+
+            <div class="uploader">
+            <img src="assets/default-avatar.jpg" alt="Profile picture">
+            <span>${data.username || "unavailable"}</span>
+            </div>
+
+        </div>
+
+    </a>`;
+    resourcesContainerEl.appendChild(card);}*/
 
 export async function loadTheResource(resourceId, elements) {
 
@@ -176,7 +202,11 @@ export async function uploadResource(elements) {
     resetUploadButton(elements.uploadBtn);
     return;
     }
-
+    if (file.type !== "application/pdf") {
+    showToast("Only PDF files are allowed.", "warning");
+    resetUploadButton(elements.uploadBtn);
+    return;
+    }
     ////// Creating the intery in resourcz table (Document MetaData) //////////////
 
     const { data, error } = await supabaseClient
@@ -359,3 +389,42 @@ export async function incViewCount(resourceId){
             }
 
 }*/
+async function resourceCardDisplay(resource, resourcesContainerEl){
+   const {data} = await supabaseClient.from("users").select("username").eq("id_user",resource.id_uploader).single();
+    const card = document.createElement("article");
+    card.classList.add("resource-card");
+
+    const starIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-star-icon lucide-star"><path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"/></svg>`;
+
+    const ratingPct = Math.max(0, Math.min(100, ((resource.average_rating || 0) / 5) * 100));
+
+    card.innerHTML = `
+    <a href = "resource.html?id=${resource.id_resource}">
+
+        <div class="resource-header-card">
+            <div class="resource-preview">
+                <div class="pdf-icon">PDF</div>
+            </div>
+            <div class="resource-info">
+                <h3>${resource.title}</h3>
+                <p>${resource.description || "No description provided"}</p>
+            </div>
+        </div>
+
+        <div class="resource-rating">
+            <div class="stars" style="--rating-pct: ${ratingPct}%">
+                <div class="stars-bg">${starIcon.repeat(5)}</div>
+                <div class="stars-fg">${starIcon.repeat(5)}</div>
+            </div>
+            <span>${resource.average_rating} (${resource.rating_count})</span>
+        </div>
+
+        <div class="resource-footer">
+            <div class="uploader">
+            <img src="assets/default-avatar.jpg" alt="Profile picture">
+            <span>${data.username || "unavailable"}</span>
+            </div>
+        </div>
+
+    </a>`;
+    resourcesContainerEl.appendChild(card);}

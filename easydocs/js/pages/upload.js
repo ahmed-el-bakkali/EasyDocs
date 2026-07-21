@@ -79,7 +79,6 @@ function registerEventListeners() {
 
     // Choose file button
     chooseFileBtn.addEventListener("click", () => {
-
         pdfFile.click();
     });
 
@@ -87,7 +86,8 @@ function registerEventListeners() {
     if (logoutBtn) {
         logoutBtn.addEventListener("click", logout);
     }
-//indicating that a file has been selected 
+
+    //indicating that a file has been selected 
     pdfFile.addEventListener("change", () => {
     if (pdfFile.files.length > 0) {
         selectedFile.textContent = `✓ ${pdfFile.files[0].name}`;
