@@ -7,8 +7,8 @@
    ========================================================= */
 :root {
     /* Backgrounds — dark navy surfaces, each a step lighter for depth */
-    --bg:            #0F1A2E;
-    --bg-surface:    #1A2940;
+    --bg:            #041022;
+    --bg-surface:    #09172A;
     --bg-raised:     #223354;
 
     /* Text */
@@ -23,7 +23,7 @@
 
     /* Highlight (green) — the site's main "CTA / positive" accent:
        used for links, ratings, borders, confirmations */
-    --highlight:      #1c7b0d;
+    --highlight:      #266210;
     --highlight-hover:#22940f;
     --highlight-soft: rgba(28, 123, 13, 0.16);
 
