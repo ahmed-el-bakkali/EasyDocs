@@ -3,65 +3,84 @@ import { showToast } from "../ui/toast.js";
 import { getCurrentUser } from "../auth/session.js";
 import { resetUploadButton } from "../ui/uploads.js";
 
-export async function loadResources({   schoolId = null,
-                                        yearId = null,
-                                        semesterId = null,
-                                        majorId = null,
-                                        subjectId = null,
-                                        uploaderId = null} = {},
-                                        resourcesContainerEl)    {
+export async function loadResources(
+    {   schoolId = null,
+        yearId = null,
+        semesterId = null,
+        majorId = null,
+        subjectId = null,
+        uploaderId = null
+    } = {},resourcesContainerEl) {
 
-        let query = supabaseClient.from("resource") ;
-
-    if (schoolId && !yearId && !semesterId && !majorId && !subjectId && !uploaderId) { //for only schoolid
-        query = query.select(`*,subjects!inner (id_school)`)
-                     .eq("subjects.id_school", schoolId);
+    if (!resourcesContainerEl) {
+        console.error("Resources container was not found.");
+        return;
     }
 
-    if (!schoolId && yearId && !semesterId && !majorId && !subjectId && !uploaderId) { // for only yearId
-        query = query.select(`*,subjects!inner (id_year)`)
-                     .eq("subjects.id_year", yearId);
-    }
+    let query;
 
-    if (!schoolId && yearId && semesterId && !majorId && !subjectId && !uploaderId) { // for year&semesterId
-        query = query.select(`*,subjects!inner(id_year, id_semester )`)
-                     .eq("subjects.id_year", yearId).eq("subjects.id_semester", semesterId);
+    // Profile page: filter directly by uploader
+    if (uploaderId) {
+        query = supabaseClient.from("resource").select("*").eq("id_uploader", uploaderId);
     }
-
-    if (!schoolId && yearId && semesterId && majorId && !subjectId && !uploaderId) { // for majorId
-        query = query.select(`*,subjects!inner (id_year,id_major, id_semester)`).eq("subjects.id_year", yearId).eq("subjects.id_major", majorId).eq("subjects.id_semester", semesterId);
+    // A specific subject is selected
+    else if (subjectId) {
+        query = supabaseClient.from("resource").select("*").eq("id_subject", subjectId);
     }
+    // Academic filters are selected
+    else {
+        query = supabaseClient.from("resource").select(`*,subjects!inner (id_school,id_year,id_semester,id_major)`);
 
-    if (!schoolId && !yearId && !semesterId && !majorId && subjectId && !uploaderId) { // for subjectId
-        query = query.select("*") .eq("id_subject", subjectId);
+        if (schoolId) {
+            query = query.eq("subjects.id_school", schoolId);
+        }
+
+        if (yearId) {
+            query = query.eq("subjects.id_year", yearId);
+        }
+
+        if (semesterId) {
+            query = query.eq("subjects.id_semester", semesterId);
+        }
+
+        if (majorId) {
+            query = query.eq("subjects.id_major", majorId);
+        }
     }
-
-    if (!schoolId && !yearId && !semesterId && !majorId && !subjectId && uploaderId) { // for IploaderId
-        query = query.select('*').eq("id_uploader",uploaderId);}
 
     const { data, error } = await query;
 
-    if (error) {
-        console.error(error);
-        showToast(error.message, "error");
-        return;
-    }
+// Always remove the previous results first
+resourcesContainerEl.innerHTML = "";
 
-    resourcesContainerEl.innerHTML = "";
+if (error) {
+    console.error("Error loading resources:", error);
 
-    if (data.length === 0) {
-        resourcesContainerEl.innerHTML = `
-            <div class="empty-state">
-                <h3>No resources found</h3>
-                <p>---</p>
-            </div>
-        `;
-        return;
-    }
+    resourcesContainerEl.innerHTML = `
+        <div class="empty-state">
+            <h3>Unable to load resources</h3>
+            <p>${error.message}</p>
+        </div>
+    `;
 
-     data.forEach(resource => { resourceCardDisplay(resource, resourcesContainerEl); } );
+    return;
+}
 
-    }
+if (!data || data.length === 0) {
+    resourcesContainerEl.innerHTML = `
+        <div class="empty-state">
+            <h3>No resources found</h3>
+            <p>Try selecting different filters.</p>
+        </div>
+    `;
+
+    return;
+}
+
+data.forEach(resource => {
+    resourceCardDisplay(resource, resourcesContainerEl);
+});
+}
 
 /*async function resourceCardDisplay(resource, resourcesContainerEl){
    const {data} = await supabaseClient.from("users").select("username").eq("id_user",resource.id_uploader).single();
@@ -390,6 +409,7 @@ export async function incViewCount(resourceId){
 
 }*/
 async function resourceCardDisplay(resource, resourcesContainerEl){
+    console.log(resource);
    const {data} = await supabaseClient.from("users").select("username").eq("id_user",resource.id_uploader).single();
     const card = document.createElement("article");
     card.classList.add("resource-card");

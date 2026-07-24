@@ -27,8 +27,8 @@
     object-fit: contain;
     
 }
-.community-card button {
-    width: 100%;
+.community-card .redirectBtn {
+    width: 80%;
     padding: 0.45rem;
     background: var(--accent);
     color: var(--text);
@@ -38,10 +38,11 @@
     font-weight: 600;
     cursor: pointer;
     transition: background var(--transition);
+    text-align : center;
     
 }
-.community-card button:hover { background: var(--accent-hover); }
-.community-card button a { color: var(--text); }
+.community-card .redirectBtn:hover { background: var(--accent-hover); }
+.community-card  .redirectBtn { color: var(--text); }
 .redirectBtn { color: var(--text); }
 
 /* -----------------------------------------------------------

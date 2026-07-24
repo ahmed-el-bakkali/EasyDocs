@@ -10,19 +10,27 @@
 <body>
     <header class="navbar">
         <div class="navbar-left">
+            <a href="index.html" class="navbar-brand-link">
                 <img src="assets/logo.png" alt="logo" id="logo">
                 <div class="navbar-brand">
                     <h1 class="logo">EasyDocs</h1>
                     <span class="tagline">Share.Learn.Grow.</span>
                 </div>
+             </a>
         </div>
         <div class="navbar-center">
         </div>
-        <div class="navbar-right">
+
+        <!--<div class="navbar-right">
              <a href="index.html" id="homeLink">Home</a>
             <a href="upload.html" id="uploadLink">Upload</a>
             <a href="#" id="logoutBtn">Logout</a>
+        </div>-->
+
+        <div class="navbar-right" id="navbarLinks">
+            <!--Js handles navbar buttons-->
         </div>
+
     </header>
     <main class="layout">
         <!-- CENTER CONTENT -->
@@ -114,7 +122,7 @@
                 <h3>Share your study resources</h3>
                 <img src ="assets/uploadIcon.png" alt ="icon" >
                 <p>Help other students by uploading summaries, exams, cheat sheets, and presentations</p>
-                <button class="redirectBtn"><a href="signup.html">Upload</a></button>
+                <a href="upload.html"class="redirectBtn">Upload</a>
             </div>
         </aside>
     </main>

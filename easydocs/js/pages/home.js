@@ -1,68 +1,105 @@
-console.log(supabaseClient);
-console.log("JS LOADED");
-
-const logoutBtn = document.getElementById("logoutBtn");
-const schoolSelect = document.getElementById("school");
-const yearSelect = document.getElementById("year");
-const majorSelect = document.getElementById("major");
-const semesterSelect = document.getElementById("semester");
-const subjectSelect = document.getElementById("subject");
-const resourcesContainer = document.getElementById("resources");
-const hiddenWhenLogged = document.getElementById("content-1");
-
 import { supabaseClient } from "../config/supabase.js";
 import { getCurrentUser } from "../auth/session.js";
-import { logout } from "../auth/auth.js";
 import { updateNavbar } from "../auth/navbar.js";
-import { loadSchools,loadYears,loadSemesters,loadMajors,loadSubjects } from "../api/academic.js";
+
+import {loadSchools,loadYears,loadSemesters,loadMajors,loadSubjects} from "../api/academic.js";
 import { loadResources } from "../api/resources.js";
-import { showToast } from "../ui/toast.js";
 
 initHomePage();
 
 async function initHomePage() {
-    const user = await getCurrentUser();
-    if(user){
-        const {data , error} = await supabaseClient
-        .from("users").select("username").eq("id_user",user.id).single();
-        hiddenWhenLogged.innerHTML="";
-        hiddenWhenLogged.innerHTML = `<h2>Welcome back ${data.username}</h2>`;
+
+    // These IDs match your actual index.html
+    const schoolSelect = document.getElementById("school");
+    const yearSelect = document.getElementById("year");
+    const semesterSelect = document.getElementById("semester");
+    const majorSelect = document.getElementById("major");
+    const subjectSelect = document.getElementById("subject");
+    const resourcesContainer = document.getElementById("resources");
+    const hiddenWhenLogged = document.getElementById("content-1");
+
+    // Check that the required elements exist
+    if (!schoolSelect ||!yearSelect ||!semesterSelect ||!majorSelect ||!subjectSelect ||!resourcesContainer) {
+        console.error("One or more home-page elements were not found.");
+        return;
     }
+
+    // Load navbar
     await updateNavbar();
+
+    // Load the schools immediately
     await loadSchools(schoolSelect);
-    schoolSelect.addEventListener("change", () => {
-        loadResources({schoolId : schoolSelect.value}, resourcesContainer);
+
+    // Welcome message
+    const user = await getCurrentUser();
+
+    if (user && hiddenWhenLogged) {
+        const { data, error } = await supabaseClient.from("users").select("username").eq("id_user", user.id).single();
+        if (error) {
+            console.error("Error loading username:", error);
+        } else {
+            hiddenWhenLogged.innerHTML = `<h2>Welcome back ${data?.username || "User"}</h2>`;
+        }}
+    // SCHOOL
+    schoolSelect.addEventListener("change", async () => {
         yearSelect.innerHTML = '<option value="">Year</option>';
         semesterSelect.innerHTML = '<option value="">Semester</option>';
         majorSelect.innerHTML = '<option value="">Major</option>';
         subjectSelect.innerHTML = '<option value="">Subject</option>';
-        loadYears(schoolSelect.value, yearSelect);
+
+        yearSelect.disabled = true;
+        semesterSelect.disabled = true;
+        majorSelect.disabled = true;
+        subjectSelect.disabled = true;
+
+        if (!schoolSelect.value) {
+            resourcesContainer.innerHTML = "";
+            return;
+        }
+
+        await loadYears(
+            schoolSelect.value,
+            yearSelect
+        );
+        await loadResources({schoolId: schoolSelect.value},resourcesContainer);
     });
-    yearSelect.addEventListener("change", () => {
-        loadResources({yearId : yearSelect.value}, resourcesContainer);
+
+    // YEAR
+    yearSelect.addEventListener("change", async () => {
         semesterSelect.innerHTML = '<option value="">Semester</option>';
         majorSelect.innerHTML = '<option value="">Major</option>';
         subjectSelect.innerHTML = '<option value="">Subject</option>';
-        loadSemesters(semesterSelect);
-    });
-    semesterSelect.addEventListener("change", () => {
-        loadResources({yearId : yearSelect.value,
-                       semesterId : semesterSelect.value
-                      }, resourcesContainer);
+        semesterSelect.disabled = true;
+        majorSelect.disabled = true;
+        subjectSelect.disabled = true;
+        if (!yearSelect.value) {
+            await loadResources({schoolId: schoolSelect.value},resourcesContainer);
+            return;}
+        await loadSemesters(semesterSelect);
+        await loadResources({schoolId: schoolSelect.value,yearId: yearSelect.value},resourcesContainer);});
+
+    // SEMESTER
+    semesterSelect.addEventListener("change", async () => {
         majorSelect.innerHTML = '<option value="">Major</option>';
         subjectSelect.innerHTML = '<option value="">Subject</option>';
-        loadMajors(yearSelect.value, semesterSelect.value, majorSelect);
-    });
-    majorSelect.addEventListener("change", () => {
-        loadResources({ yearId : yearSelect.value,
-                        majorId : majorSelect.value,
-                        semesterId : semesterSelect.value
-                        }, resourcesContainer);
+        majorSelect.disabled = true;
+        subjectSelect.disabled = true
+        if (!semesterSelect.value) {
+            await loadResources({schoolId: schoolSelect.value,yearId: yearSelect.value},resourcesContainer);
+            return;}
+        await loadMajors(yearSelect.value,semesterSelect.value,majorSelect);
+        await loadResources({schoolId: schoolSelect.value,yearId: yearSelect.value,semesterId: semesterSelect.value},resourcesContainer);});
+    // MAJOR
+    majorSelect.addEventListener("change", async () => {
         subjectSelect.innerHTML = '<option value="">Subject</option>';
-        loadSubjects(schoolSelect.value,yearSelect.value,majorSelect.value,semesterSelect.value, subjectSelect);
-    });
-    subjectSelect.addEventListener("change", () => {
-        loadResources({subjectId : subjectSelect.value}, resourcesContainer);
-    });
-    if (logoutBtn) { logoutBtn.addEventListener("click", logout);}
+        subjectSelect.disabled = true;
+        if (!majorSelect.value) {await loadResources({schoolId: schoolSelect.value,yearId: yearSelect.value,semesterId: semesterSelect.value},resourcesContainer);
+            return;}
+        await loadSubjects(schoolSelect.value, yearSelect.value,majorSelect.value, semesterSelect.value,subjectSelect);
+        await loadResources( {schoolId: schoolSelect.value,yearId: yearSelect.value,semesterId: semesterSelect.value,majorId: majorSelect.value},resourcesContainer);});
+    // SUBJECT
+    subjectSelect.addEventListener("change", async () => {
+        if (!subjectSelect.value) {await loadResources({schoolId: schoolSelect.value,yearId: yearSelect.value,semesterId: semesterSelect.value,majorId: majorSelect.value},resourcesContainer);
+            return;  }
+        await loadResources({schoolId: schoolSelect.value,yearId: yearSelect.value,semesterId: semesterSelect.value,majorId: majorSelect.value,subjectId: subjectSelect.value},resourcesContainer);});
 }

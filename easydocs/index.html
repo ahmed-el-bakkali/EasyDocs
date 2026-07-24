@@ -9,8 +9,9 @@
 </head>
 <body>
     <header class="navbar">
+
         <div class="navbar-left">
-            <a href="index.html" class="navbar-brand-link"></a>
+            <a href="index.html" class="navbar-brand-link">
                 <img src="assets/logo.png" alt="logo" id="logo">
                 <div class="navbar-brand">
                     <h1 class="logo">EasyDocs</h1>
@@ -18,16 +19,25 @@
                 </div>
              </a>
         </div>
+        
         <div class="navbar-center">
         </div>
-        <div class="navbar-right">
+
+        <!--<div class="navbar-right">
+
             <a href="index.html" id="homeLink">Home</a>
             <a href="profile.html" id="profileLink">profile</a>
             <a href="upload.html" id="uploadLink">Upload</a>
             <a href="login.html" id="loginLink">Login</a>
             <a href="signup.html"  id="signupLink">Sign Up</a>
             <a href="#" id="logoutBtn" >Logout</a>
-        </div>
+
+        </div>-->
+
+            <div class="navbar-right" id="navbarLinks">
+            <!--Js handles navbar buttons-->
+            </div>
+            
     </header>
     <main class="layout">
         <!-- LEFT SIDEBAR -->
@@ -108,7 +118,7 @@
              <div id="content-1" class="community-card">
                 <h3>Join the Community</h3>
                 <p>Connect, share notes and help other students.</p>
-                <button class="redirectBtn"><a href="signup.html">Sign Up</a></button>
+                <a href="signup.html" class="redirectBtn">Sign Up</a>
             </div>
             <div class="community-card">
                 <h3>Discover Resources</h3>
@@ -120,7 +130,7 @@
                 <h3>Share your study resources</h3>
                 <img src ="assets/uploadIcon.png" alt ="icon" >
                 <p>Help other students by uploading summaries, exams, cheat sheets, and presentations</p>
-                <button class="redirectBtn"><a href="signup.html">Upload</a></button>
+                <a href="signup.html" class="redirectBtn">Upload</a>
             </div>
         </aside>
     </main>

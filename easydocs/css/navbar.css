@@ -15,14 +15,14 @@
     z-index: 100;
 }
 
-.navbar-left,
+.navbar-left a,
 .navbar-center,
 .navbar-right {
     display: flex;
     align-items: center;
 }
 
-.navbar-left   { flex: 0 0 auto; flex-direction: row; gap: 0.6rem; }
+.navbar-left  a { flex: 0 0 auto; flex-direction: row; gap: 0.6rem; }
 .navbar-center { flex: 1; justify-content: center; gap: 0.1rem; }
 .navbar-right  { flex: 0 0 auto; gap: 0.1rem; }
 
